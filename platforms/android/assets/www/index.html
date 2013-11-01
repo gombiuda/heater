@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" type="text/css" href="css/heater.css" />
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/lib/handlebars.js"></script>
+    <script type="text/javascript" src="js/lib/ember.js"></script>
+    <script type="text/javascript" src="js/lib/underscore.js"></script>
+    <script type="text/javascript" src="js/lib/underscore.string.js"></script>
+    <title>Hello World</title>
+    <script type="text/x-handlebars" data-template-name="main">
+      <table>
+	<tr>
+	  <th>Name</th>
+	  <th>Value</th>
+	</tr>
+	<tr>
+	  <td>occupy</td>
+	  <td>{{occupy}}</td>
+	</tr>
+	<tr>
+	  <td>anti-frozen</td>
+	  <td>{{anti_frozen}}</td>
+	</tr>
+	<tr>
+	  <td>water</td>
+	  <td>{{water}}</td>
+	</tr>
+	<tr>
+	  <td>fan</td>
+	  <td>{{fan}}</td>
+	</tr>
+	<tr>
+	  <td>call</td>
+	  <td>{{call}}</td>
+	</tr>
+	<tr>
+	  <td>injection</td>
+	  <td>{{injection}}</td>
+	</tr>
+	<tr>
+	  <td>segment</td>
+	  <td>{{segment}}</td>
+	</tr>
+	<tr>
+	  <td>error</td>
+	  <td>{{error}}</td>
+	</tr>
+	<tr>
+	  <td>temperature</td>
+	  <td>{{temperature}}</td>
+	</tr>
+	<tr>
+	  <td>flow-rate</td>
+	  <td>{{flow_rate}}</td>
+	</tr>
+	<tr>
+	  <td>water-injected</td>
+	  <td>{{water_injected}}</td>
+	</tr>
+	<tr>
+	  <td>gas-total</td>
+	  <td>{{gas_total}}</td>
+	</tr>
+	<tr>
+	  <td>water-total</td>
+	  <td>{{water_total}}</td>
+	</tr>
+	<tr>
+	  <td>fan-rate</td>
+	  <td>{{fan_rate}}</td>
+	</tr>
+	<tr>
+	  <td>water-output</td>
+	  <td>{{water_output}}</td>
+	</tr>
+	<tr>
+	  <td>efficiency</td>
+	  <td>{{efficiency}}</td>
+	</tr>
+      </table>
+      <div>
+	<div style="width: 50%; float: left">
+	  <h4>Temperature</h4>
+	  <div {{action increase_temperature on="click"}}
+	       {{action increase_temperature on="touchStart"}}
+	       class="button">
+	    +
+	  </div>
+	  <div class="number">{{temperature_target}}</div>
+	  <div {{action decrease_temperature on="click"}}
+	       {{action decrease_temperature on="touchStart"}}
+	       class="button">
+	    -
+	  </div>
+	</div>
+	<div style="width: 50%; float: left">
+	  <h4>Flow rate</h4>
+	  <div {{action increase_flow_rate on="click"}}
+	       {{action increase_flow_rate on="touchStart"}}
+	       class="button">
+	    +
+	  </div>
+	  <div class="number">{{flow_rate_target}}</div>
+	  <div {{action decrease_flow_rate on="click"}}
+	       {{action decrease_flow_rate on="touchStart"}}
+	       class="button">
+	    -
+	  </div>
+	</div>
+      </div>
+      <ul>
+	<li>Host: <input type="text" name="host" value="192.168.1.102"></li>
+	<li>Port: <input type="text" name="port" value="8000"></li>
+	<li><button id="connect">Connect</button></li>
+	<li>Connected: <span id="connected">{{connected}}</span></li>
+      </ul>
+    </script>
+  </head>
+  <body>
+    <script type="text/x-handlebars">
+      {{view App.View controllerBinding="App.heater"}}
+    </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="http://192.168.1.102:8081/target/target-script-min.js#anonymous"></script>
+    <script>
+        window.define = function(factory) {
+            try{ delete window.define; } catch(e){ window.define = void 0; } // IE
+            window.when = factory();
+        };
+        window.define.amd = {};
+    </script>
+    <script src="js/lib/when/when.js"></script>
+    <script type="text/javascript" src="js/lib/bit-array.js"></script>
+    <script type="text/javascript" src="js/lib/crc8.js"></script>
+    <script type="text/javascript" src="js/heater.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>

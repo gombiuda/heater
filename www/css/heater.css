@@ -1,0 +1,14 @@
+.button {
+    height: 70px;
+    width: 120px;
+    background-color: #F2E9D8;
+    text-align: center;
+    line-height: 70px;
+}
+.number {
+    height: 70px;
+    width: 120px;
+    background-color: #D9D1BA;
+    text-align: center;
+    line-height: 70px;
+}
